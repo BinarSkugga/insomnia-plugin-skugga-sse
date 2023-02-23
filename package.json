@@ -1,0 +1,14 @@
+{
+  "name": "insomnia-plugin-skugga-sse",
+  "version": "0.1.2",
+  "private": false,
+  "insomnia": {
+    "name": "skugga-sse",
+    "description": ""
+  },
+  "keywords": ["sse", "insomnia", "plugin"],
+  "main": "main.js",
+  "dependencies": {
+    "mitt": "^3.0.0"
+  }
+}
