@@ -66,7 +66,7 @@ module.exports.responseHooks = [
         mitt.on('test-sse', (event) => {
             const messageNode = document.createElement('div')
             messageNode.innerText = JSON.stringify(event)
-            messageNode.style = 'margin: 5px 0px;'
+            messageNode.style = 'margin: 5px 0px;user-select: text'
             sse_request.box.prepend(messageNode)
         })
     }
