@@ -44,7 +44,7 @@ module.exports.requestHooks = [
         let messageCallback = (message) => {
             const messageNode = document.createElement('div')
             messageNode.innerText = message.data
-            messageNode.style = 'margin: 5px 0px;'
+            messageNode.style = 'margin: 5px 0px;user-select: text'
             sseBox.prepend(messageNode)
         }
 
@@ -53,22 +53,6 @@ module.exports.requestHooks = [
             box: sseBox
         }
         source.addEventListener(eventName ?? 'sse', messageCallback)
-    }
-  }
-];
-
-module.exports.responseHooks = [
-  async context => {
-    const req = context.response.getRequestId()
-    if(sse_requests.hasOwnProperty(req)) {
-        const sse_request = sse_requests[req]
-
-        mitt.on('test-sse', (event) => {
-            const messageNode = document.createElement('div')
-            messageNode.innerText = JSON.stringify(event)
-            messageNode.style = 'margin: 5px 0px;user-select: text'
-            sse_request.box.prepend(messageNode)
-        })
     }
   }
 ];
