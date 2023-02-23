@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-skugga-sse",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "license": "MIT",
   "files": ["*.js", "*.json"],
@@ -11,7 +11,5 @@
   "keywords": ["sse", "insomnia", "plugin"],
   "main": "main.js",
   "homepage": "https://github.com/BinarSkugga/insomnia-plugin-skugga-sse",
-  "dependencies": {
-    "mitt": "^3.0.0"
-  }
+  "dependencies": {}
 }

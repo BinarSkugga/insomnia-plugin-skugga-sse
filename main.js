@@ -1,6 +1,3 @@
-const mitt = require('mitt')()
-const sse_requests = {}
-
 function removeOldSSEBox(document) {
     const oldBox = document.getElementById('sse-response-box')
     if(oldBox !== null) oldBox.getElementsByTagName('button')[0].click()
@@ -28,6 +25,13 @@ function createSSEBox(document, source) {
     return sseResponseNode
 }
 
+function createMessageBox(sseBox, message) {
+    const messageNode = document.createElement('div')
+    messageNode.innerText = message.data
+    messageNode.style = 'margin: 5px 0px;user-select: text'
+    sseBox.prepend(messageNode)
+}
+
 module.exports.requestHooks = [
   async context => {
     if(context.request.getMethod() === 'SSE') {
@@ -41,18 +45,8 @@ module.exports.requestHooks = [
             console.log(e)
         }
 
-        let messageCallback = (message) => {
-            const messageNode = document.createElement('div')
-            messageNode.innerText = message.data
-            messageNode.style = 'margin: 5px 0px;user-select: text'
-            sseBox.prepend(messageNode)
-        }
-
-        sse_requests[context.request.getId()] = {
-            source: source,
-            box: sseBox
-        }
-        source.addEventListener(eventName ?? 'sse', messageCallback)
+        source.addEventListener(eventName ?? 'sse',
+                message => createMessageBox(sseBox, message))
     }
   }
 ];
