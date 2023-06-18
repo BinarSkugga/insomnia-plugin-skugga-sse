@@ -34,7 +34,7 @@ function createMessageBox(sseBox, message) {
 
 module.exports.requestHooks = [
   async context => {
-    if(context.request.getMethod() === 'SSE') {
+    if(context.request.getMethod() === 'SSE' || context.request.getHeader('x-sse')) {
         removeOldSSEBox(document)
 
         let source = new EventSource(context.request.getUrl())
