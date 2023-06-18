@@ -1,15 +1,16 @@
 {
   "name": "insomnia-plugin-skugga-sse",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": false,
   "license": "MIT",
   "files": ["*.js", "*.json"],
   "insomnia": {
     "name": "skugga-sse",
-    "description": ""
+    "displatName": "Skugga SSE",
+    "description": "Perform SSE requests using the EventSource class."
   },
   "keywords": ["sse", "insomnia", "plugin"],
-  "main": "main.js",
+  "main": "app.js",
   "homepage": "https://github.com/BinarSkugga/insomnia-plugin-skugga-sse",
   "dependencies": {}
 }
