@@ -1,6 +1,8 @@
 Simply create a request with a custom HTTP method `SSE` 
 or add the header `x-sse` with a truthy value, and it will 
-trigger the plugin.
+trigger the plugin. 
+
+**Note that the insomnia plugin API doesn't allow me to disable the initial request. You will receive a GET followed by the EventSource**
 
 You can specify the event name in the `x-event-name` header.
 
