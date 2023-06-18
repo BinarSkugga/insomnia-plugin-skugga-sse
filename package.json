@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-skugga-sse",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "private": false,
   "license": "MIT",
   "files": ["*.js", "*.json"],
